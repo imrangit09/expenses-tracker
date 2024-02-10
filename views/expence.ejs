@@ -1,0 +1,36 @@
+
+    <%- include("header.ejs")%>
+<link rel="stylesheet" href="./stylesheets/expence.css">
+<nav>
+  <img src="https://imgs.search.brave.com/Wgk3KRM2cZ_esAwMb2YDhkXlhzI2LshjvtfSLHctsT8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9sb2dv/ZGl4LmNvbS9sb2dv/LzE3Mjc1NDIucG5n" alt="">
+  <h1><%=data.username%></h1>
+</nav>
+   <div id="main">
+    <a id="Addexpence" href="/homepage">Add New Expence</a>
+        <div class="expenses-list">
+          <h2>Expenses List</h2>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Title</th>
+                      <th>Amount</th>
+                      <th>Category</th>
+                      <th>Caption</th>
+                      <th>Date</th>
+                      <th>Delete</th>
+                      <th>Update</th>
+                  </tr>
+              </thead>
+              <tbody id="expnese-table-body">
+                <% data.posts.forEach(function(e, i){ %>
+                 <td><%= e.title %></td>
+                 <td><%= e.amount %></td>
+                 <td><%= e.category %></td>
+                 <td><%= e.caption %></td>
+                 <td><%= e.date %></td>
+                 <td><a href="/delete/<%=e._id%>">delete</a></td>
+                 <td><a href="/update/<%=e._id%>">update</a></td>
+              </tbody>
+     <%}) %>
+   </div>
+ <%- include("footer.ejs")%>
